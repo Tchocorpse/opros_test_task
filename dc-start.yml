@@ -12,11 +12,11 @@ services:
     environment:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
-      POSTGRES_DB: opros_task_db
+      POSTGRES_DB: questionnaire_task_db
       POSTGRES_USER: debug
       POSTGRES_PASSWORD: debug
     image: postgres:12.7
-    container_name: postgres_test_opros
+    container_name: postgres_test_questionnaire
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
       - local_postgres_data_backups:/backups:z
@@ -27,7 +27,7 @@ services:
       dockerfile: ./dockerfiles/django/Dockerfile
     depends_on:
       - postgres
-    container_name: django_test_opros
+    container_name: django_test_questionnaire
     volumes:
       - .:/app:z
     ports:
